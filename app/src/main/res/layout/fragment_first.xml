@@ -6,8 +6,100 @@
     android:layout_height="match_parent"
     tools:context=".FirstFragment">
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_item"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+    <Button
+        android:id="@+id/ed_Pereira"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Edificio Pereira"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/ed_consistorial"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="9dp"
+        android:text="Ed. Consistorial"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Pereira" />
+
+    <Button
+        android:id="@+id/ed_Moneda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Edificio Huerfanos"
+        app:layout_constraintStart_toStartOf="@+id/ed_consistorial"
+        app:layout_constraintTop_toBottomOf="@+id/ed_consistorial" />
+
+    <Button
+        android:id="@+id/ed_Prat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Edificio Prat"
+        app:layout_constraintStart_toStartOf="@+id/ed_Moneda"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Moneda" />
+
+    <Button
+        android:id="@+id/ed_Amunategui"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="8dp"
+        android:text="Edificio Amunategui"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Prat" />
+
+    <Button
+        android:id="@+id/Ed_Balmaceda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:text="Edificio Balmaceda"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Amunategui" />
+
+    <Button
+        android:id="@+id/ed_Telefonica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="12dp"
+        android:text="Edificio Telefonica"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Ed_Balmaceda" />
+
+    <Button
+        android:id="@+id/ed_Nuev_Horizonte"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="11dp"
+        android:text="Edificio Nuevo Horizonte"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Telefonica" />
+
+    <Button
+        android:id="@+id/ed_Huerfanos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="14dp"
+        android:text="Edificio Huerfanos"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Nuev_Horizonte" />
+
+    <Button
+        android:id="@+id/ed_Morande"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:text="Edificio Morande"
+        app:layout_constraintStart_toStartOf="@+id/ed_Huerfanos"
+        app:layout_constraintTop_toBottomOf="@+id/ed_Huerfanos" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

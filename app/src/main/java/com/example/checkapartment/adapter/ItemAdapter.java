@@ -15,33 +15,30 @@ import com.example.checkapartment.model.Item;
 
 import java.util.List;
 
-public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder> {
+public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder>{
+
     private List<Item> itemList;
-    private Context context;
+    private SendItem sendItem;
+   private Context context;
     private SendItem listener;
 
-    public ItemAdapter(List<Item> ItemList, Context context, SendItem sendItem) {
-        this.itemList = itemList;
-        this.context = context;
-        this.listener = sendItem;
+    public ItemAdapter(List<Item> ItemList){
+        this.itemList = ItemList;
     }
 
     @NonNull
     @Override
     public ItemViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        ItemListDataBinding binding = ItemListDataBinding
-                .inflate(LayoutInflater.from(parent.getContext()),
+        ItemListDataBinding
+                binding = ItemListDataBinding.inflate(LayoutInflater.from(parent.getContext()),
                         parent, false);
-
-
         return new ItemViewHolder(binding);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ItemViewHolder holder, int position) {
-        final Item item = itemList.get(position);
+        Item item = itemList.get(position);
         holder.textView.setText(item.getItemDescription());
-
     }
 
     @Override
@@ -61,7 +58,6 @@ public class ItemAdapter extends RecyclerView.Adapter<ItemAdapter.ItemViewHolder
 
         @Override
         public void onClick(View v) {
-            listener.sendItem(itemList.get(getLayoutPosition()));
         }
     }
 

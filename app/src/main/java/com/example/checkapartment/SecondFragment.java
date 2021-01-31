@@ -11,33 +11,42 @@ import android.view.ViewGroup;
 import android.widget.RadioGroup;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.example.checkapartment.databinding.FragmentSecondBinding;
 import com.example.checkapartment.presenter.Presentador;
 
 public class SecondFragment extends Fragment {
+
     private Presentador presentador;
     private FragmentSecondBinding binding;
+
+
 
     @Override
     public View onCreateView(
             LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState
     ) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second, container, false);
+        binding = FragmentSecondBinding.inflate(inflater,  container, false);
+        return binding.getRoot();
+
+
     }
 
-    public void onViewCreated(@NonNull View view, Bundle savedInstanceState, int valueEstado, int sumavalueUnidad, int puntajeObtenido) {
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        binding = FragmentSecondBinding.inflate(getLayoutInflater());
-
-
         binding.checkGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+
+                int sumavalueUnidad;
+                int puntajeObtenido;
+
                 //presentador.verficadorValor(s.toString());
+
                 int index = binding.radioGroup.indexOfChild(binding.radioGroup.findViewById(checkedId));
 
 
@@ -56,10 +65,12 @@ public class SecondFragment extends Fragment {
                         valueUnidad =  + 40;
                         break;
                 }
-            int sumavalueUnidad = valueUnidad;
+                sumavalueUnidad = valueUnidad;
+
             }
         });
-        binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
+    binding.radioGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 int index = binding.radioGroup.indexOfChild(binding.radioGroup.findViewById(checkedId));
@@ -68,7 +79,7 @@ public class SecondFragment extends Fragment {
                 int valueEstado = 0;
                 switch(checkedId){
                     case 1:
-                       valueEstado = 3;
+                        valueEstado = 3;
                         break;
                     case 2:
                         valueEstado = 2;
@@ -77,6 +88,7 @@ public class SecondFragment extends Fragment {
                         valueEstado = 1;
                         break;
                 }
+                int sumavalueUnidad = 0;
                 int puntajeObtenido = sumavalueUnidad * valueEstado;
             }
         });
@@ -88,8 +100,8 @@ public class SecondFragment extends Fragment {
             }
 
             @Override
-           public void onTextChanged(CharSequence s, int start, int before, int count){
-             presentador.verificadorValor(Integer.parseInt((String) s));
+            public void onTextChanged(CharSequence s, int start, int before, int count){
+                presentador.verificadorValor(Integer.parseInt((String) s));
 
             }
 
@@ -98,21 +110,26 @@ public class SecondFragment extends Fragment {
 
             }
         });
-     binding.txVPoints.setText("Puntaje Obtenido " + puntajeObtenido);
+
+        //binding.txVPoints.setText("Puntaje Obtenido " + puntajeObtenido);
 
 
 
 
-     binding.BtEnviar.setOnClickListener(new View.OnClickListener() {
-         @Override
-         public void onClick(View v) {
-             Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","correo@gmail.com", null));
-             emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Puntaje obtenido ");
-             //startActivity(Intent.createChooser(emailIntent,  getActivity().getString(R.string.)));
-         }
-     });
+        binding.BtEnviar.setOnClickListener(new View.OnClickListener() {
+        @Override
+            public void onClick(View v) {
+                Intent emailIntent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts("mailto","correo@gmail.com", null));
+                emailIntent.putExtra(Intent.EXTRA_SUBJECT, "Puntaje obtenido ");
+                //startActivity(Intent.createChooser(emailIntent,  getActivity().getString(R.string.)));
+            }
+        });
     }
-    }
+
+}
+
+
+
 
 
 
