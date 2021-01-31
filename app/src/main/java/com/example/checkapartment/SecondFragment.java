@@ -37,6 +37,7 @@ public class SecondFragment extends Fragment {
         binding.checkGroup.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
+                //presentador.verficadorValor(s.toString());
                 int index = binding.radioGroup.indexOfChild(binding.radioGroup.findViewById(checkedId));
 
 
@@ -87,8 +88,8 @@ public class SecondFragment extends Fragment {
             }
 
             @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-                presentador.verificadorValor(s.toString());
+           public void onTextChanged(CharSequence s, int start, int before, int count){
+             presentador.verificadorValor(Integer.parseInt((String) s));
 
             }
 

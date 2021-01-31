@@ -11,6 +11,14 @@ import android.widget.Toast;
 
 import com.example.checkapartment.databinding.ActivityMainBinding;
 
+
+/*Trabajo Grupal
+
+Jenifer Luengo
+Alexis Leon
+Jean Paul  */
+
+
 public class MainActivity extends AppCompatActivity {
 
    private  ActivityMainBinding binding;
@@ -36,9 +44,9 @@ public class MainActivity extends AppCompatActivity {
                 String mail = binding.ETxUser.getText().toString();
 
                 String password = binding.ETxPassword.getText().toString();
-                String pass = "123Pass";
 
-                if (password == pass) {
+
+                if (mail.equals("mail@mail.com")&& password.equals("123Pass")) {
                     passsecond();
                     Toast.makeText(MainActivity.this, "Clave Valida, Bienvenido", Toast.LENGTH_SHORT).show();
 
